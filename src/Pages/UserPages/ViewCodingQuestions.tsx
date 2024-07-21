@@ -1,11 +1,8 @@
-import Navbar from "@/components/Navbar"
 import SideBar from "@/components/SideBar";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -20,7 +17,7 @@ export function ViewCodingQuestions() {
 
   const { id, testid } = useParams();
 
-  const { timeLeft, isTestStarted, handleTestSubmit, setTimeLeft, setDuration, setIsTestStarted } = useTime();
+  const { timeLeft, handleTestSubmit, setTimeLeft, setDuration, setIsTestStarted } = useTime();
 
   const [questions, setQuestion] = useState<any[]>();
 
@@ -115,7 +112,7 @@ export function ViewCodingQuestions() {
 
   return (
     <div className="flex">
-      <SideBar testid={testid} codingTestId={codingTestId}/>
+      <SideBar testid={testid} codingTestId={codingTestId} />
       <div className="flex min-h-screen w-full flex-col bg-muted/40">
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 h-screen mx-12 my-6" style={{ padding: "2% 17%" }}>
           <div className="flex items-center gap-4">

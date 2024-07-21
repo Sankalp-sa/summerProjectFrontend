@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Navbar from "@/components/Navbar";
 import {
     Card,
     CardContent,
     CardDescription,
     CardHeader,
-    CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Editor } from '@monaco-editor/react';
@@ -20,8 +18,6 @@ export default function CreateCodingQuestion() {
     const [testCaseInput, setTestCaseInput] = useState<string>("");
     const [testCases, setTestCases] = useState<any[]>([]);
     const [value, setValue] = useState<string>("");
-
-    const { id } = useParams();
 
     const addTestCase = () => {
         if (testCaseInput.trim()) {

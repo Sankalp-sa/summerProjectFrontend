@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { AppWindow, Bell, CircleUser, Menu, Search } from "lucide-react"
+import { useEffect, useState } from 'react'
+import { AppWindow, Bell, CircleUser, Menu } from "lucide-react"
 import { Link } from 'react-router-dom'
-import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import {
     DropdownMenu,
@@ -14,7 +13,6 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useAuth } from '@/Context/AuthContext'
 import { useSocket } from '@/Context/SocketContext'
-import { BACKEND_URL } from '@/config/config'
 
 export default function Navbar() {
 

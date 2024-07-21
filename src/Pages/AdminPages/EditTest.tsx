@@ -31,7 +31,6 @@ import { Button } from "@/components/ui/button"
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
     DialogFooter,
     DialogHeader,
     DialogTitle,
@@ -260,9 +259,7 @@ export default function EditTest() {
                                                     initialFocus
                                                 />
                                                 <div className="p-3 border-t border-border">
-                                                    <TimePickerDemo setDate={setDate as
-                                                    React.Dispatch<React.SetStateAction<Date>>
-                                                    } date={date} />
+                                                    <TimePickerDemo setDate={setDate as (date: Date | undefined) => void} date={date} />
                                                 </div>
                                             </PopoverContent>
                                         </Popover>
@@ -292,9 +289,7 @@ export default function EditTest() {
                                                     initialFocus
                                                 />
                                                 <div className="p-3 border-t border-border">
-                                                    <TimePickerDemo setDate={setEdate as 
-                                                    React.Dispatch<React.SetStateAction<Date>>
-                                                    } date={edate} />
+                                                    <TimePickerDemo setDate={setEdate as (date: Date | undefined) => void} date={edate} />
                                                 </div>
                                             </PopoverContent>
                                         </Popover>

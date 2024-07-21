@@ -1,4 +1,3 @@
-import Navbar from '@/components/Navbar';
 import { Button } from '@/components/ui/button';
 import {
     Form,
@@ -47,7 +46,7 @@ export default function Test() {
 
     const navigate = useNavigate();
 
-    const { timeLeft, isTimeUp, isTestStarted, startTime, setStartTime, setDuration, setIsTestStarted, setTimeLeft, setIsTimeUp } = useTime();
+    const { timeLeft, setStartTime, setDuration, setIsTestStarted, setTimeLeft } = useTime();
 
     const [questions, setQuestions] = useState<Question[]>([]);
     const [userAnswers, setUserAnswers] = useState<number[]>(JSON.parse(localStorage.getItem('userAnswers') || '[]'));
@@ -56,7 +55,6 @@ export default function Test() {
     const [codingTestId, setCodingTestId] = useState<string>('');
 
     const questionsPerPage = 1;
-    const paginationSize = 5;
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -171,7 +169,7 @@ export default function Test() {
             });
 
             if (response.ok) {
-                const result = await response.json();
+                // const result = await response.json();
                 toast({
                     title: 'Success',
                     description: "Your test is submitted successfully check your score in the view score section.",
@@ -208,10 +206,6 @@ export default function Test() {
     };
 
     const totalPages = Math.ceil(questions.length / questionsPerPage);
-    const totalPaginationPages = Math.ceil(totalPages / paginationSize);
-    const currentPaginationPage = Math.ceil(currentPage / paginationSize);
-    const startPage = (currentPaginationPage - 1) * paginationSize + 1;
-    const endPage = Math.min(currentPaginationPage * paginationSize, totalPages);
 
     return (
         <>

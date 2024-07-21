@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
@@ -20,7 +19,6 @@ import Navbar from '@/components/Navbar';
 import { useParams } from "react-router-dom";
 import { useAuth } from '@/Context/AuthContext';
 import { BACKEND_URL } from '@/config/config';
-import { any } from 'zod';
 
 export default function ViewScore() {
     const [responses, setResponses] = useState<any[]>([]);
@@ -85,7 +83,7 @@ export default function ViewScore() {
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
-                                {userResponse.map((r, index) => (
+                                {userResponse.map((r) => (
                                     <TableRow key={r.response._id} className="bg-accent">
                                         <TableCell>{responses.findIndex(res => res.student._id === r.student._id) + 1}</TableCell>
                                         <TableCell className="hidden sm:table-cell">{r.student.name}</TableCell>
@@ -96,7 +94,7 @@ export default function ViewScore() {
                                         </TableCell>
                                     </TableRow>
                                 ))}
-                                {otherResponses.map((r, index) => (
+                                {otherResponses.map((r) => (
                                     <TableRow key={r.response._id}>
                                         <TableCell>{responses.findIndex(res => res.student._id === r.student._id) + 1}</TableCell>
                                         <TableCell className="hidden sm:table-cell">{r.student.name}</TableCell>

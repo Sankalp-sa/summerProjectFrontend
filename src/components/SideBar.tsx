@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { FileQuestion, Home, Package, Package2, Send, ChevronLeft, ChevronRight } from 'lucide-react'
-import { Button } from './ui/button'
 import { cn } from "@/lib/utils"
 import { useAuth } from '@/Context/AuthContext'
 
@@ -54,9 +53,8 @@ export default function SideBar({testid, codingTestId} : SideBarProps) {
     )
 }
 
-function NavItem({ to, icon: Icon, label, collapsed, active = false, inst, testid} : NavItemProps)  {
+function NavItem({ to, icon: Icon, label, collapsed, active = false} : NavItemProps)  {
 
-    const navigate = useNavigate();
 
     const { user } = useAuth();
 

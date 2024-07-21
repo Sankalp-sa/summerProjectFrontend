@@ -5,14 +5,12 @@ import {
     CardContent,
     CardDescription,
     CardHeader,
-    CardTitle,
 } from "@/components/ui/card";
 import { BACKEND_URL } from '@/config/config';
 import { useAuth } from '@/Context/AuthContext';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
 
 export default function EditResponse() {
 

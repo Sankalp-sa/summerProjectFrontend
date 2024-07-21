@@ -9,7 +9,7 @@ import {
     TableHead,
     TableRow,
 } from "@/components/ui/table";
-import React, { Key, useEffect, useReducer } from 'react';
+import React, { Key, useEffect } from 'react';
 import { BACKEND_URL } from '@/config/config';
 import { useSocket } from '@/Context/SocketContext';
 
@@ -24,13 +24,11 @@ import {
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
     DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 export default function ViewApplicants() {

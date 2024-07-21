@@ -3,24 +3,19 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useSocket } from "./SocketContext";
 import { useNavigate } from "react-router-dom";
 
-type User = {
-    name: string;
-    email: string;
-}
-
 type UserAuth = {
     isLoggedIn: boolean;
-    user: User | null;
-    login: (email: string, password: string) => void;
-    signup: (name: string, email: string, password: string) => void;
+    user: any;
+    login: () => void;
     logout: () => void;
+    isAdmin: boolean;
 }
 
 const AuthContext = createContext<UserAuth | null>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
-    const [user, setUser] = useState<User | null>(null);
+    const [user, setUser] = useState<any>(null);
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
     const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
@@ -93,10 +88,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         checkAuth()
     }
 
-    const signup = (name: string, email: string, password: string) => {
-        // send token to backend
-    }
-
     const logout = async () => {
         // clear cookie
 
@@ -126,7 +117,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         isLoggedIn,
         user,
         login,
-        signup,
         logout,
         isAdmin
     }
@@ -138,4 +128,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     )
 }
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = (): UserAuth => {
+    const context = useContext(AuthContext);
+    if (context === null) {
+        throw new Error("useAuth must be used within an AuthProvider");
+    }
+    return context;
+}

@@ -2,7 +2,7 @@ import Navbar from '@/components/Navbar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BACKEND_URL } from '@/config/config';
 import { useAuth } from '@/Context/AuthContext';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';

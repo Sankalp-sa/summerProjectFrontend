@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     ResizableHandle,
     ResizablePanel,
@@ -11,7 +11,6 @@ import { CODE_SNIPPETS } from '@/Constants/snippet';
 import { toast } from '@/components/ui/use-toast';
 import SideBar from '@/components/SideBar';
 import { useTime } from '@/Context/TimeContext';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 export default function CodingQuestion() {
 
@@ -22,7 +21,7 @@ export default function CodingQuestion() {
     
     const [loader2, setLoader2] = useState(false);
 
-    const { timeLeft, isTestStarted, handleTestSubmit, setTimeLeft, setDuration, setIsTestStarted } = useTime();
+    const { timeLeft, handleTestSubmit, setTimeLeft, setDuration, setIsTestStarted } = useTime();
 
     const [mcqs, setMcqs] = useState<any[]>();
 

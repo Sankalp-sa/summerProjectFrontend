@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Editor from '@monaco-editor/react';
 import {
     Select,
@@ -20,7 +20,6 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useTime } from '@/Context/TimeContext';
-import { ScrollArea } from './ui/scroll-area';
 import SmallLoader from './SmallLoader';
 
 interface CodeSnippets {

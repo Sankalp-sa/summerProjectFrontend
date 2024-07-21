@@ -3,7 +3,6 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 import moment from 'moment';
 import { useAuth } from './AuthContext';
 import { toast } from '@/components/ui/use-toast';
-import { useNavigate } from 'react-router-dom';
 import { BACKEND_URL } from '@/config/config';
 
 interface TimeContextType {
@@ -34,7 +33,6 @@ export const TimeProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const { user } = useAuth();
 
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (startTime && duration) {
@@ -82,7 +80,7 @@ export const TimeProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }));
 
         const requestBody = {
-            student: user.user.id,
+            student: user?.user?.id,
             testid,
             question_array: questionArray,
         };
@@ -97,7 +95,7 @@ export const TimeProvider: React.FC<{ children: React.ReactNode }> = ({ children
             });
 
             if (response.ok) {
-                const result = await response.json();
+                // const result = await response.json();
                 toast({
                     title: 'Success',
                     description: "Your test is submitted successfully check your score in the view score section.",

@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     ResizableHandle,
     ResizablePanel,
     ResizablePanelGroup,
 } from "@/components/ui/resizable"
 import CodeEditor from '@/components/CodeEditor'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { BACKEND_URL } from '@/config/config';
 import { CODE_SNIPPETS } from '@/Constants/snippet';
 import { toast } from '@/components/ui/use-toast';
 import { Badge } from '@/components/ui/badge';
 import Navbar from '@/components/Navbar';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 export default function PracticeCodingQuestion() {
 
@@ -22,8 +21,6 @@ export default function PracticeCodingQuestion() {
     const [questionStatus, setQuestionStatus] = useState<any>("not attempted");
 
     const [loader2, setLoader2] = useState(false);
-
-    const navigate = useNavigate();
 
     const getQuestionDetails = async () => {
 
