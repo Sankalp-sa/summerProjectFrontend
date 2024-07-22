@@ -105,7 +105,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             setUser(null)
             setIsLoggedIn(false)
 
-            navigate("/sigin")
+            navigate("/signin")
 
         } else {
             console.log(data)
