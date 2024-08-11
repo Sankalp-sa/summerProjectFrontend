@@ -85,7 +85,7 @@ export default function Navbar() {
                             Practice
                         </Link>
                         <Link
-                            to="/application"
+                            to="/user/application"
                             className="text-muted-foreground transition-colors hover:text-foreground whitespace-nowrap"
                         >
                             Application

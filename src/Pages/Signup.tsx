@@ -14,7 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from 'zod'
 import Heading from '@/components/Heading'
 import { BACKEND_URL } from '@/config/config'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Navbar from '@/components/Navbar'
 import {
   Select,
@@ -24,6 +24,8 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
+import { toast } from "@/components/ui/use-toast"
+import { Check } from "lucide-react"
 
 
 const formSchema = z.object({
@@ -40,9 +42,7 @@ const formSchema = z.object({
   gender: z.enum(["male", "female", "other"]), // Assuming gender is a string and can be one of these values
   dob: z.string().refine((val) => !isNaN(Date.parse(val)), {
     message: "Invalid date of birth",
-  }), // Assuming dob is a string in a valid date format
-  father: z.string(),
-  mother: z.string(),
+  }),
   phone: z.string().min(10, {
     message: "Phone number must be at least 10 characters long",
   }), // Assuming phone is a string of at least 10 characters
@@ -66,6 +66,8 @@ export default function Signup() {
       username: "",
     },
   })
+
+  const navigate = useNavigate();
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
 
@@ -93,7 +95,14 @@ export default function Signup() {
 
     const data = await res.json()
 
-    console.log(data)
+    if(res.status === 201){
+      toast({
+        title: "Account Created",
+        description: "Your account has been created successfully! Now you can login.",
+      })
+
+      navigate('/signin')
+    }
 
   }
 
@@ -278,7 +287,7 @@ export default function Signup() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" onClick={() => onSubmit(form.getValues())}>Submit</Button>
+              <Button type="submit">Submit</Button>
               <div className="mt-4 text-center text-sm pb-12">
                 Already have an account?{" "}
                 <Link to="/signin" className="underline">

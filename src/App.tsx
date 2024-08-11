@@ -33,7 +33,6 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/" element={<Home />} />
-        <Route path="/application" element={<Application />} />
         <Route path="/admin" element={<AdminRoute />}>
           <Route path="createTest" element={<CreateTest />} />
           <Route path="addTest" element={<AddTestPage />} />
@@ -43,6 +42,7 @@ function App() {
           <Route path="createCodingQuestion/:id" element={<CreateCodingQuestion />} />
         </Route>
         <Route path="/user" element={<UserRoute />}>
+          <Route path="application" element={<Application />} />
           <Route path="editResponse" element={<EditResponse />} />
           <Route path="myTests" element={<ViewTests />} />
           <Route path="test/:id" element={<Test />} />
