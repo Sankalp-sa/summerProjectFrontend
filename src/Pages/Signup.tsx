@@ -25,7 +25,6 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/components/ui/use-toast"
-import { Check } from "lucide-react"
 
 
 const formSchema = z.object({
@@ -93,7 +92,7 @@ export default function Signup() {
       body: JSON.stringify(userData),
     })
 
-    const data = await res.json()
+    // const data = await res.json();
 
     if(res.status === 201){
       toast({
